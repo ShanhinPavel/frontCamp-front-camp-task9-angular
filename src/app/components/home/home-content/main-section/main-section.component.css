@@ -1,0 +1,8 @@
+:host {
+  width: 100%;
+}
+
+.main-section {
+  border: 1px solid black;
+  min-height: 200px;
+}

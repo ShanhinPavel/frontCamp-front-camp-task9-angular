@@ -1,0 +1,10 @@
+:host {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  height: 60px;
+  border: 1px solid black;
+}
