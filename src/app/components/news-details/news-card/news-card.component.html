@@ -1,0 +1,23 @@
+<div class="news-card">
+  <div class="wrapper">
+    <div class="img">
+      <app-image [imageSrc]="newsDetails.imgSource"></app-image>
+    </div>
+    <div>
+      <p>
+        {{ newsDetails.description }}
+      </p>
+      <app-published-date
+        [publishedDate]="newsDetails.publishedDate"
+      ></app-published-date>
+      <div>
+        <p>Author:{{ newsDetails.author }}</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <app-button title="Delete" clickButton=""></app-button>
+      <app-button title="Edit" clickButton=""></app-button>
+    </div>
+  </div>
+</div>

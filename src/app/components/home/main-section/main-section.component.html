@@ -1,0 +1,8 @@
+<div class="main-section" *ngFor="let news of newsLines">
+  <app-news-line
+    [imgSource]="news.imageSrc"
+    [description]="news.description"
+    [publishedDate]="news.publishedDate"
+  ></app-news-line>
+</div>
+<app-load-more></app-load-more>

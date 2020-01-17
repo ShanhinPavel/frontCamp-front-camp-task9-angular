@@ -1,0 +1,10 @@
+.search-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+}

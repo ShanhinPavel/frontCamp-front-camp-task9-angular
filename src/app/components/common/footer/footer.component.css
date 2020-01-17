@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40px;
+  background-color: #333333;
+}
+
+p {
+  margin-right: 10px;
+}

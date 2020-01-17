@@ -1,0 +1,19 @@
+<div class="news-line">
+  <div class="wrapper">
+    <div class="img">
+      <app-image [imageSrc]="imgSource"></app-image>
+    </div>
+    <div>
+      <p>
+        {{ description }}
+      </p>
+      <p><a href="=">Read more</a></p>
+    </div>
+
+    <app-published-date [publishedDate]="publishedDate"></app-published-date>
+    <div class="controls">
+      <app-button title="Delete" clickButton=""></app-button>
+      <app-button title="Edit" clickButton=""></app-button>
+    </div>
+  </div>
+</div>
