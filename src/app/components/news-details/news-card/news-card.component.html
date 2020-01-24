@@ -3,15 +3,18 @@
     <div class="img">
       <app-image [imageSrc]="newsDetails.imgSource"></app-image>
     </div>
-    <div>
+
+    <div class="general-info">
       <p>
         {{ newsDetails.description }}
       </p>
-      <app-published-date
-        [publishedDate]="newsDetails.publishedDate"
-      ></app-published-date>
-      <div>
-        <p>Author:{{ newsDetails.author }}</p>
+      <div class="publish-date-author">
+        <app-published-date
+          [publishedDate]="newsDetails.publishedDate"
+        ></app-published-date>
+        <div>
+          <p>Author:{{ newsDetails.author }}</p>
+        </div>
       </div>
     </div>
 

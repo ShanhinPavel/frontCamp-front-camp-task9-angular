@@ -1,8 +1,10 @@
-<div class="main-section" *ngFor="let news of newsLines">
-  <app-news-line
-    [imgSource]="news.imageSrc"
-    [description]="news.description"
-    [publishedDate]="news.publishedDate"
-  ></app-news-line>
+<div class="main-section">
+  <div class="news-lines" *ngFor="let news of newsLines">
+    <app-news-line
+      [imgSource]="news.imageSrc"
+      [description]="news.description"
+      [publishedDate]="news.publishedDate"
+    ></app-news-line>
+  </div>
+  <app-load-more></app-load-more>
 </div>
-<app-load-more></app-load-more>

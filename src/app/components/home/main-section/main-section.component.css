@@ -1,7 +1,8 @@
-:host {
-  width: 100%;
-}
-
 .main-section {
+  width: 80%;
   min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
 }
