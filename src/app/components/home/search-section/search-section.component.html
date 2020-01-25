@@ -1,7 +1,22 @@
 <div class="search-section">
-  <app-select></app-select>
-  <app-input></app-input>
-  <app-checkbox></app-checkbox>
+  <select (change)="onChangeSelect($event.target.value)">
+    <option selected [value]="all">All sources</option>
+    <option *ngFor="let source of newsSources" [value]="source.id">{{
+      source.name
+    }}</option>
+  </select>
+  <div>
+    <input type="text" size="15" [(ngModel)]="filterWord" />
+    <app-button title="Filter" [clickButton]="onClickFilter"></app-button>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+      [(ngModel)]="checkBoxChecked"
+      (change)="onChangeCheckbox()"
+    />
+    <label>Only created by me</label>
+  </div>
   <app-button
     title="Add article"
     [clickButton]="handleClickAddArticle"

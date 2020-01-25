@@ -1,3 +1,8 @@
-<app-title></app-title>
-<app-search-section></app-search-section>
+<app-title [title]="sourceTitle"></app-title>
+<app-search-section
+  [newsSources]="newsSources"
+  (handleChangeSource)="handleChangeSource($event)"
+  (handleClickFilter)="handleClickFilter($event)"
+  (handleChangeCheckbox)="handleChangeCheckbox($event)"
+></app-search-section>
 <app-main-section></app-main-section>
