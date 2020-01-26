@@ -1,9 +1,15 @@
 <div class="search-section">
-  <select (change)="onChangeSelect($event.target.value)">
-    <option selected [value]="all">All sources</option>
-    <option *ngFor="let source of newsSources" [value]="source.id">{{
-      source.name
-    }}</option>
+  <select
+    (change)="onChangeSelect($event.target.value)"
+    [disabled]="checkBoxChecked"
+  >
+    <option [selected]="checkBoxChecked" value="my">My source</option>
+    <option
+      *ngFor="let source of newsSources; let index = index"
+      [value]="index"
+      [selected]="!index"
+      >{{ source.name }}</option
+    >
   </select>
   <div>
     <input type="text" size="15" [(ngModel)]="filterWord" />

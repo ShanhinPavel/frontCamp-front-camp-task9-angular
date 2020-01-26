@@ -1,46 +1,50 @@
 import { Component, OnInit } from "@angular/core";
 
-interface NewsSource {
-  id: string;
-  name: string;
-  description: string;
-  url: string;
-  category: string;
-  language: string;
-  country: string;
-}
+import { HttpService } from "../../services/http.service";
+import { NewsSource, NewsArticle } from "../../services/types";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
+  providers: [HttpService]
 })
 export class HomeComponent implements OnInit {
   private newsSources: NewsSource[];
   private sourceTitle: string;
   private selectedSource: NewsSource;
+  private newsArticles: NewsArticle[];
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.newsSources = [];
+    this.newsArticles = [];
     this.sourceTitle = "All sources";
   }
 
-  public async ngOnInit() {
-    const result = await fetch(
-      "https://newsapi.org/v2/sources?apiKey=f3931451dc1247fdb198996ccfe8be09"
-    );
+  private fechNewsArticles = (newsSourceId: string) => {
+    this.httpService
+      .getNewsArticlesBySourceId(newsSourceId)
+      .subscribe(data => (this.newsArticles = data.articles));
+  };
 
-    const { sources } = await result.json();
-    this.newsSources = sources;
+  public ngOnInit() {
+    this.httpService.getNewsSources().subscribe(data => {
+      const firstSource = data[0];
+      this.fechNewsArticles(firstSource.id);
+      this.sourceTitle = firstSource.name;
+      this.newsSources = data;
+    });
   }
 
-  private handleChangeSource = (sourceId: string) => {
-    const selectedNewsSource = this.newsSources.find(
-      source => sourceId === source.id
-    );
+  private handleChangeSource = (sourceIndex: string) => {
+    if (sourceIndex === "my") {
+    } else {
+      const selectedNewsSource: NewsSource = this.newsSources[sourceIndex];
+      this.fechNewsArticles(selectedNewsSource.id);
 
-    this.selectedSource = selectedNewsSource;
-    this.sourceTitle = selectedNewsSource.name;
+      this.selectedSource = selectedNewsSource;
+      this.sourceTitle = selectedNewsSource.name;
+    }
   };
 
   private handleClickFilter = (filterWord: string) => {

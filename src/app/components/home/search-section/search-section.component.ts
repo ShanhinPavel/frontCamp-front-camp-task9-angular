@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Router} from '@angular/router';
 
 interface NewsSource {
   id: string;
@@ -11,9 +12,9 @@ interface NewsSource {
 }
 
 @Component({
-  selector: "app-search-section",
-  templateUrl: "./search-section.component.html",
-  styleUrls: ["./search-section.component.css"]
+  selector: 'app-search-section',
+  templateUrl: './search-section.component.html',
+  styleUrls: ['./search-section.component.css']
 })
 export class SearchSectionComponent {
   @Input() newsSources: NewsSource[];
@@ -23,24 +24,24 @@ export class SearchSectionComponent {
   private filterWord: string;
   private checkBoxChecked: boolean;
 
-  public constructor() {
-    this.filterWord = "";
+  public constructor(private router: Router) {
+    this.filterWord = '';
     this.checkBoxChecked = false;
   }
 
   onChangeSelect = (sourceId: string) => {
     this.handleChangeSource.emit(sourceId);
-  };
+  }
 
   onClickFilter = () => {
     this.handleClickFilter.emit(this.filterWord);
-  };
+  }
 
   onChangeCheckbox = () => {
     this.handleChangeCheckbox.emit(this.checkBoxChecked);
-  };
+  }
 
   handleClickAddArticle = () => {
-    console.log("add article");
-  };
+    this.router.navigate(['article/create']);
+  }
 }
