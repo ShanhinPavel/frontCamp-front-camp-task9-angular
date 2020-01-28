@@ -1,11 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { NewsArticle } from "src/app/services/types";
-
-interface NewsLine {
-  imageSrc: string;
-  description: string;
-  publishedDate: string;
-}
+import { GlobalDataService } from "../../../services/global-data.service";
 
 @Component({
   selector: "app-main-section",

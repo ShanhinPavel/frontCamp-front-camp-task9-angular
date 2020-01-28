@@ -1,8 +1,10 @@
 .news-line {
   width: 100%;
-  margin: 0 auto;
-  border: 1px solid black;
+  margin: 20px auto;
+  color: dimgray;
   height: 200px;
+  background-color: white;
+  display: flex;
 }
 
 .wrapper {
@@ -14,6 +16,7 @@
 
 .img {
   width: 30%;
+  min-width: 280px;
   height: 100%;
 }
 

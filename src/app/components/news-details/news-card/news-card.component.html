@@ -1,19 +1,19 @@
 <div class="news-card">
   <div class="wrapper">
     <div class="img">
-      <app-image [imageSrc]="newsDetails.imgSource"></app-image>
+      <app-image [imageSrc]="articleDetails.urlToImage"></app-image>
     </div>
 
     <div class="general-info">
       <p>
-        {{ newsDetails.description }}
+        {{ articleDetails.description }}
       </p>
       <div class="publish-date-author">
         <app-published-date
-          [publishedDate]="newsDetails.publishedDate"
+          [publishedDate]="articleDetails.publishedAt"
         ></app-published-date>
         <div>
-          <p>Author:{{ newsDetails.author }}</p>
+          <p>Author:{{ articleDetails.author }}</p>
         </div>
       </div>
     </div>
