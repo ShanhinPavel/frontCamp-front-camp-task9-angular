@@ -12,5 +12,6 @@ export class NewsDetailsComponent {
 
   constructor(private globalDataService: GlobalDataService) {
     this.articleDetails = globalDataService.getArticle();
+    console.log(globalDataService.getArticle());
   }
 }

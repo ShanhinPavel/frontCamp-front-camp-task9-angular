@@ -5,4 +5,8 @@
   (handleClickFilter)="handleClickFilter($event)"
   (handleChangeCheckbox)="handleChangeCheckbox($event)"
 ></app-search-section>
-<app-main-section [newsArticles]="newsArticles"></app-main-section>
+<app-main-section
+  [newsArticles]="filteredNewsArticles"
+  [showingLoadMoreButton]="showingLoadMoreButton"
+  [handleClickLoadMoreButton]="handleClickLoadMoreButton"
+></app-main-section>

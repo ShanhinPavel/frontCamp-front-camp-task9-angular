@@ -9,8 +9,6 @@ import { GlobalDataService } from "../../../services/global-data.service";
 })
 export class MainSectionComponent {
   @Input() newsArticles: NewsArticle[];
-
-  constructor() {
-    this.newsArticles = [];
-  }
+  @Input() handleClickLoadMoreButton: () => void;
+  @Input() showingLoadMoreButton: boolean;
 }

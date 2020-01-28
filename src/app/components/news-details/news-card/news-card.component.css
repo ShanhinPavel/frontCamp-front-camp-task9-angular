@@ -5,14 +5,14 @@
 .news-card {
   margin: 0 auto;
   min-height: 200px;
-  background-color: crimson;
+  background-color: white;
+  font-size: medium;
 }
 
 .wrapper {
   padding: 10px;
   min-height: inherit;
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
 }
 
@@ -35,5 +35,12 @@
 .general-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.img {
+  width: 30%;
+  min-height: 100%;
+  min-width: 300px;
 }

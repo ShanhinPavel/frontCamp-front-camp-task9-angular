@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Router } from "@angular/router";
 
 interface NewsSource {
   id: string;
@@ -12,36 +12,37 @@ interface NewsSource {
 }
 
 @Component({
-  selector: 'app-search-section',
-  templateUrl: './search-section.component.html',
-  styleUrls: ['./search-section.component.css']
+  selector: "app-search-section",
+  templateUrl: "./search-section.component.html",
+  styleUrls: ["./search-section.component.css"]
 })
 export class SearchSectionComponent {
   @Input() newsSources: NewsSource[];
   @Output() handleChangeSource = new EventEmitter<string>();
   @Output() handleClickFilter = new EventEmitter<string>();
   @Output() handleChangeCheckbox = new EventEmitter<boolean>();
-  private filterWord: string;
+  private filterString: string;
   private checkBoxChecked: boolean;
 
   public constructor(private router: Router) {
-    this.filterWord = '';
+    this.filterString = "";
     this.checkBoxChecked = false;
   }
 
   onChangeSelect = (sourceId: string) => {
+    this.filterString = "";
     this.handleChangeSource.emit(sourceId);
-  }
+  };
 
   onClickFilter = () => {
-    this.handleClickFilter.emit(this.filterWord);
-  }
+    this.handleClickFilter.emit(this.filterString);
+  };
 
   onChangeCheckbox = () => {
     this.handleChangeCheckbox.emit(this.checkBoxChecked);
-  }
+  };
 
   handleClickAddArticle = () => {
-    this.router.navigate(['article/create']);
-  }
+    this.router.navigate(["article/create"]);
+  };
 }

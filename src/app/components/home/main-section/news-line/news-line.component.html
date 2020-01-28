@@ -14,7 +14,9 @@
         <p>
           {{ article.description }}
         </p>
-        <p><a (click)="handleClickReadMore()">Read more</a></p>
+        <p (click)="handleClickReadMore()" class="read-more-button">
+          Read more
+        </p>
       </div>
     </div>
 

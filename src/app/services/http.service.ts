@@ -3,14 +3,11 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import {
-  NewsSource,
-  NewsSourcesResponse,
-  NewsArticle,
-  NewsArticlesResponse
-} from "./types";
+import { NewsSource, NewsSourcesResponse, NewsArticlesResponse } from "./types";
 import { SOURCES_URL, NEWS_HEADLINES_URL } from "./urls";
 import { environment } from "src/environments/environment";
+
+export const AMOUNT_PAGES_ARTICLES = 5;
 
 @Injectable({
   providedIn: "root"
@@ -31,13 +28,16 @@ export class HttpService {
   }
 
   getNewsArticlesBySourceId(
-    sourseId: string
+    sourseId: string,
+    page: number
   ): Observable<NewsArticlesResponse> {
     return this.http
       .get(NEWS_HEADLINES_URL, {
         params: {
           sources: sourseId,
           language: "en",
+          pageSize: `${AMOUNT_PAGES_ARTICLES}`,
+          page: `${page}`,
           apiKey: environment.apiKey
         }
       })
