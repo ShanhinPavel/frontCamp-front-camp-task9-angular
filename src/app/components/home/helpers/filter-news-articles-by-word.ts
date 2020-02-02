@@ -1,4 +1,4 @@
-import { NewsArticle } from "src/app/services/types";
+import { NewsArticle } from 'src/app/services/types';
 
 const regExp = /\b([A-Za-z]+)\b/gi;
 
@@ -6,7 +6,7 @@ const filterNewsArticlesByWord = (
   filterString: string,
   newsArticles: NewsArticle[]
 ): NewsArticle[] => {
-  if (!filterString) return newsArticles;
+  if (!filterString) { return newsArticles; }
 
   const filteredArticlesWithPlugins = filterString
     .toLowerCase()

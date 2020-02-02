@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { NewsArticle } from "./types";
+import { Injectable } from '@angular/core';
+import { NewsArticle } from './types';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class GlobalDataService {
   private article: NewsArticle;
@@ -11,9 +11,9 @@ export class GlobalDataService {
 
   getArticle = () => {
     return this.article;
-  };
+  }
 
   setArticle = (article: NewsArticle) => {
     this.article = article;
-  };
+  }
 }

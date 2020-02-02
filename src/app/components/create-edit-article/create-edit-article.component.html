@@ -1,4 +1,8 @@
-<app-title></app-title>
+<app-title [title]="modeTitle"></app-title>
 <div class="form-container">
-  <app-create-edit-article-form></app-create-edit-article-form>
+  <app-create-edit-article-form
+    [articleDetails]="arcticleDetails"
+    [clickSave]="handleClickSave"
+    [clickCancel]="handleClickCancel"
+  ></app-create-edit-article-form>
 </div>

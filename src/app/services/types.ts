@@ -14,6 +14,7 @@ export interface NewsSourcesResponse {
 }
 
 export interface NewsArticle {
+  id?: number;
   source: {
     id: string;
     name: string;

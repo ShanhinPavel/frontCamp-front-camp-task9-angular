@@ -1,34 +1,65 @@
-<form class="form">
+<form class="form" #myForm="ngForm" novalidate>
   <div class="inputs-blocks">
     <div class="inputs-block">
       <label for="heading" class="form-field">Heading</label>
-      <input type="text" id="heading" />
+      <input
+        type="text"
+        id="heading"
+        name="heading"
+        [(ngModel)]="heading"
+        required
+      />
 
       <label for="short-description" class="form-field"
         >Short description</label
       >
-      <input type="text" id="short-description" />
+      <input
+        type="text"
+        id="short-description"
+        name="description"
+        [(ngModel)]="description"
+        required
+      />
 
       <label for="date">Date</label>
-      <input type="text" id="date" />
+      <input type="text" id="date" name="date" [(ngModel)]="date" required />
 
       <label for="author">Author</label>
-      <input type="text" id="author" />
+      <input
+        type="text"
+        id="author"
+        name="author"
+        [(ngModel)]="author"
+        required
+      />
     </div>
 
     <div class="inputs-block">
       <label for="image">Image</label>
-      <input type="text" id="image" />
+      <input type="text" id="image" name="image" [(ngModel)]="image" required />
 
       <label for="source-url">Source url</label>
-      <input type="text" id="source-url" />
+      <input
+        type="text"
+        id="source-url"
+        name="source"
+        [(ngModel)]="source"
+        required
+      />
 
       <label for="content">Content</label>
-      <textarea type="text" id="content"></textarea>
+      <textarea
+        type="text"
+        id="content"
+        name="content"
+        [(ngModel)]="content"
+        required
+      ></textarea>
     </div>
   </div>
   <div class="form-controls">
-    <app-button title="Cancel"></app-button>
-    <app-button title="Save"> </app-button>
+    <app-button title="Cancel" [clickButton]="clickCancel"></app-button>
+    <app-button title="Save" [clickButton]="clickSave" (click)="submit(myForm)">
+    </app-button>
   </div>
 </form>
