@@ -21,8 +21,8 @@
     </div>
 
     <div class="controls" *ngIf="sourceIsMine">
-      <app-button title="Delete" clickButton=""></app-button>
-      <app-button title="Edit" clickButton=""></app-button>
+      <app-button title="Delete" [clickButton]="handleClickDelete"></app-button>
+      <app-button title="Edit" [clickButton]="handleClickEdit"></app-button>
     </div>
   </div>
 </div>

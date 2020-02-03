@@ -18,10 +18,14 @@
         </div>
       </div>
     </div>
-
-    <div class="controls">
-      <app-button title="Delete" clickButton=""></app-button>
-      <app-button title="Edit" clickButton=""></app-button>
-    </div>
+    <ng-template [ngIf]="sourceIsMine">
+      <div class="controls">
+        <app-button
+          title="Delete"
+          [clickButton]="handleClickDelete"
+        ></app-button>
+        <app-button title="Edit" [clickButton]="handleClickEdit"></app-button>
+      </div>
+    </ng-template>
   </div>
 </div>

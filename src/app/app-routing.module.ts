@@ -12,12 +12,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'article/:articleId',
+    path: 'article/details',
     component: NewsDetailsComponent,
     pathMatch: 'full'
   },
   {
-    path: 'article/:articleId/edit',
+    path: 'article/edit',
     component: CreateEditArticleComponent,
     pathMatch: 'full'
   },

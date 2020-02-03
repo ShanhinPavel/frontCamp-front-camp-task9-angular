@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { NewsArticle } from 'src/app/services/types';
+import { HttpService } from '../../../services/http.service';
 
 @Component({
   selector: 'app-news-card',
@@ -8,4 +10,20 @@ import { NewsArticle } from 'src/app/services/types';
 })
 export class NewsCardComponent {
   @Input() articleDetails: NewsArticle;
+  private sourceIsMine: boolean;
+
+  constructor(private httpService: HttpService, private router: Router) {}
+
+  ngDoCheck() {
+    this.sourceIsMine = this.articleDetails.source.id === 'my-source';
+  }
+
+  handleClickDelete = () => {
+    this.httpService.deleteNewsArticle(`${this.articleDetails.id}`);
+    this.router.navigate(['']);
+  }
+
+  handleClickEdit = () => {
+    this.router.navigate(['article/edit']);
+  }
 }
