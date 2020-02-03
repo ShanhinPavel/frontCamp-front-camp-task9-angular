@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="controls">
+    <div class="controls" *ngIf="sourceIsMine">
       <app-button title="Delete" clickButton=""></app-button>
       <app-button title="Edit" clickButton=""></app-button>
     </div>

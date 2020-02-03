@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
 
 import {
   HttpService,
   AMOUNT_PAGES_ARTICLES
-} from '../../services/http.service';
+} from "../../services/http.service";
 import {
   NewsSource,
   NewsArticle,
   NewsArticlesResponse
-} from '../../services/types';
-import filterNewsArticlesByWord from './helpers/filter-news-articles-by-word';
-import { isShowLoadMore } from './helpers/is-show-load-more';
+} from "../../services/types";
+import filterNewsArticlesByWord from "./helpers/filter-news-articles-by-word";
+import { isShowLoadMore } from "./helpers/is-show-load-more";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
   private newsSources: NewsSource[];
@@ -30,14 +30,16 @@ export class HomeComponent implements OnInit {
   private showingLoadMoreButton: boolean;
   private totalResults: number;
   private mySource: NewsSource;
+  private sourceIsMine: boolean;
 
   constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.newsSources = [];
     this.newsArticles = [];
     this.filteredNewsArticles = [];
-    this.sourceTitle = 'All sources';
+    this.sourceTitle = "All sources";
     this.newsArticlesPage = 1;
     this.showingLoadMoreButton = false;
+    this.sourceIsMine = false;
   }
 
   private fetchMySourceArticles = () => {
@@ -49,7 +51,7 @@ export class HomeComponent implements OnInit {
         this.newsArticles = myNewsArticles;
         this.filteredNewsArticles = myNewsArticles;
       });
-  }
+  };
 
   private fechNewsArticles = (newsSourceId: string, page: number) => {
     this.httpService
@@ -73,12 +75,9 @@ export class HomeComponent implements OnInit {
           this.filteredNewsArticles = articles;
         }
       });
-  }
+  };
 
   public ngOnInit() {
-    this.httpService.getAllNewsMySource().subscribe(data => {
-      console.log(data);
-    });
     this.httpService.getNewsSources().subscribe(data => {
       const firstSource = data[0];
       this.fechNewsArticles(firstSource.id, this.newsArticlesPage);
@@ -96,29 +95,31 @@ export class HomeComponent implements OnInit {
     this.newsArticlesPage = 1;
     let selectedSource: NewsSource;
 
-    if (sourceIndex === 'my') {
+    if (sourceIndex === "my") {
       this.fetchMySourceArticles();
 
       selectedSource = this.mySource;
+      this.sourceIsMine = true;
     } else {
       this.fechNewsArticles(this.newsSources[sourceIndex].id, 1);
-
+      this.sourceIsMine = false;
       selectedSource = this.newsSources[sourceIndex];
     }
     this.selectedSource = selectedSource;
+
     this.sourceTitle = selectedSource.name;
-  }
+  };
 
   private handleClickFilter = (filterString: string) => {
     this.filteredNewsArticles = filterNewsArticlesByWord(
       filterString,
       this.newsArticles
     );
-  }
+  };
 
   private handleChangeCheckbox = (checked: boolean) => {
     this.fetchMySourceArticles();
-  }
+  };
 
   private handleClickLoadMoreButton = () => {
     const nextPage = this.newsArticlesPage + 1;
@@ -131,5 +132,5 @@ export class HomeComponent implements OnInit {
     this.newsArticlesPage = nextPage;
 
     this.fechNewsArticles(this.selectedSource.id, nextPage);
-  }
+  };
 }

@@ -1,7 +1,10 @@
 <div class="main-section">
   <ng-template [ngIf]="newsArticles">
     <div class="news-lines" *ngFor="let article of newsArticles">
-      <app-news-line [article]="article"></app-news-line>
+      <app-news-line
+        [article]="article"
+        [sourceIsMine]="sourceIsMine"
+      ></app-news-line>
     </div>
   </ng-template>
 
