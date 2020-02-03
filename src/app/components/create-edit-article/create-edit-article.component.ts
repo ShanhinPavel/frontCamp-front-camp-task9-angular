@@ -4,12 +4,11 @@ import { Location } from "@angular/common";
 
 import { NewsArticle } from "../../services/types";
 import { HttpService } from "src/app/services/http.service";
-import { Observable } from "rxjs";
 import { GlobalDataService } from "src/app/services/global-data.service";
 
 const MODE_TITLE = {
   create: "Create",
-  edtit: "Edit"
+  edit: "Edit"
 };
 
 const getInitialArcticleDetails = (state?: NewsArticle) => {
@@ -24,7 +23,7 @@ const getInitialArcticleDetails = (state?: NewsArticle) => {
     url: "",
     urlToImage: "",
     author: "",
-    publishedAt: ""
+    publishedAt: new Date().toLocaleDateString()
   };
 
   return state || initialState;
@@ -37,8 +36,8 @@ const getInitialArcticleDetails = (state?: NewsArticle) => {
 })
 export class CreateEditArticleComponent {
   private title: string;
-
   private articleDetails: NewsArticle;
+  private modeType: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,7 +45,12 @@ export class CreateEditArticleComponent {
     private location: Location,
     private globalDataService: GlobalDataService
   ) {
-    this.title = MODE_TITLE[route.snapshot.url.pop().path];
+    this.modeType = this.route.snapshot.url[1].path;
+    this.articleDetails =
+      this.modeType === "create"
+        ? getInitialArcticleDetails()
+        : globalDataService.getArticle();
+    this.title = MODE_TITLE[this.modeType];
   }
 
   private handleClickSave = (form: NewsArticle) => {

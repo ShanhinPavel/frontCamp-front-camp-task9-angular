@@ -1,8 +1,9 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { NewsArticle } from "src/app/services/types";
 import { NgForm } from "@angular/forms";
 import { HttpService } from "src/app/services/http.service";
-import { Observable } from "rxjs";
+
+import { GlobalDataService } from "src/app/services/global-data.service";
 
 @Component({
   selector: "app-create-edit-article-form",
@@ -14,7 +15,34 @@ export class CreateEditArticleFormComponent {
   @Input() clickCancel: () => void;
   @Input() articleDetails: NewsArticle;
 
-  constructor(private httpService: HttpService) {}
+  private heading: string;
+  private description: string;
+  private date: string;
+  private author: string;
+  private image: string;
+  private source: string;
+  private content: string;
+
+  ngOnInit() {
+    const {
+      author,
+      content,
+      urlToImage,
+      title,
+      source,
+      publishedAt,
+      description,
+      id,
+      url
+    } = this.articleDetails;
+    this.heading = title;
+    this.description = description;
+    this.content = content;
+    this.date = publishedAt;
+    this.image = urlToImage;
+    this.author = author;
+    this.source = url;
+  }
 
   submit(form: NgForm) {
     this.clickSave(form);
