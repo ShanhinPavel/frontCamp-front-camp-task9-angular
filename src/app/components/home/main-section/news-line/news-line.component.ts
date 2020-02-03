@@ -15,9 +15,7 @@ export class NewsLineComponent {
   constructor(
     private globalDataService: GlobalDataService,
     private router: Router
-  ) {
-    console.log(this.sourceIsMine);
-  }
+  ) {}
 
   handleClickReadMore = () => {
     this.globalDataService.setArticle(this.article);

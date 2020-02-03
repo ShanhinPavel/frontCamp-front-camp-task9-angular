@@ -44,3 +44,9 @@
   min-height: 100%;
   min-width: 300px;
 }
+
+.general-info h2,
+.general-info p,
+.publish-date-author {
+  margin-top: 10px;
+}
