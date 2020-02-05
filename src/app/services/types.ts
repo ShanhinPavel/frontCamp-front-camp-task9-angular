@@ -14,7 +14,7 @@ export interface NewsSourcesResponse {
 }
 
 export interface NewsArticle {
-  id?: number;
+  _id?: string;
   source: {
     id: string;
     name: string;
@@ -32,4 +32,14 @@ export interface NewsArticlesResponse {
   status: string;
   totalResults: number;
   articles: NewsArticle[];
+}
+
+export interface UpdateGroupRequestData {
+  title: string;
+  description: string;
+  publishedAt: string;
+  author: string;
+  urlToImage: string;
+  url: string;
+  content: string;
 }

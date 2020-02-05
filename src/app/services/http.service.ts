@@ -69,7 +69,7 @@ export class HttpService {
   }
 
   deleteNewsArticle = (newsArticleId: string): Observable<NewsArticle> => {
-    const url = MY_SOURCE_URL + `/${newsArticleId}`;
+    const url = MY_NEWS_URL + `/${newsArticleId}`;
     return this.http.delete(url).pipe(map((data: NewsArticle) => data));
   }
 
@@ -77,7 +77,7 @@ export class HttpService {
     newsArticleId: string,
     article: NewsArticle
   ): Observable<NewsArticle> => {
-    const url = MY_SOURCE_URL + `/${newsArticleId}`;
+    const url = MY_NEWS_URL + `/${newsArticleId}`;
     return this.http.put(url, article).pipe(map((data: NewsArticle) => data));
   }
 }

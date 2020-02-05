@@ -1,49 +1,59 @@
-<form class="form" #myForm="ngForm" novalidate>
+<form class="form" novalidate>
   <div class="inputs-blocks">
     <div class="inputs-block">
-      <label for="heading" class="form-field">Heading</label>
+      <label for="title" class="form-field">Heading</label>
       <input
         type="text"
-        id="heading"
-        name="heading"
-        [(ngModel)]="heading"
+        id="title"
+        name="title"
+        [(ngModel)]="formFields.title"
         required
       />
 
-      <label for="short-description" class="form-field"
-        >Short description</label
-      >
+      <label for="description" class="form-field">Short description</label>
       <input
         type="text"
-        id="short-description"
+        id="description"
         name="description"
-        [(ngModel)]="description"
+        [(ngModel)]="formFields.description"
         required
       />
 
-      <label for="date">Date</label>
-      <input type="text" id="date" name="date" [(ngModel)]="date" required />
+      <label for="publishedAt">Date</label>
+      <input
+        type="text"
+        id="publishedAt"
+        name="publishedAt"
+        [(ngModel)]="formFields.publishedAt"
+        required
+      />
 
       <label for="author">Author</label>
       <input
         type="text"
         id="author"
         name="author"
-        [(ngModel)]="author"
+        [(ngModel)]="formFields.author"
         required
       />
     </div>
 
     <div class="inputs-block">
-      <label for="image">Image</label>
-      <input type="text" id="image" name="image" [(ngModel)]="image" required />
-
-      <label for="source-url">Source url</label>
+      <label for="urlToImage">Image</label>
       <input
         type="text"
-        id="source-url"
-        name="source"
-        [(ngModel)]="source"
+        id="urlToImage"
+        name="urlToImage"
+        [(ngModel)]="formFields.urlToImage"
+        required
+      />
+
+      <label for="url">Source url</label>
+      <input
+        type="text"
+        id="url"
+        name="url"
+        [(ngModel)]="formFields.url"
         required
       />
 
@@ -52,14 +62,13 @@
         type="text"
         id="content"
         name="content"
-        [(ngModel)]="content"
+        [(ngModel)]="formFields.content"
         required
       ></textarea>
     </div>
   </div>
   <div class="form-controls">
     <app-button title="Cancel" [clickButton]="clickCancel"></app-button>
-    <app-button title="Save" [clickButton]="clickSave" (click)="submit(myForm)">
-    </app-button>
+    <app-button title="Save" [clickButton]="handleClickSave"> </app-button>
   </div>
 </form>

@@ -1,50 +1,38 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { NewsArticle } from "src/app/services/types";
-import { NgForm } from "@angular/forms";
-import { HttpService } from "src/app/services/http.service";
-
-import { GlobalDataService } from "src/app/services/global-data.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { NewsArticle } from 'src/app/services/types';
+import { UpdateGroupRequestData } from '../../../services/types';
 
 @Component({
-  selector: "app-create-edit-article-form",
-  templateUrl: "./create-edit-article-form.component.html",
-  styleUrls: ["./create-edit-article-form.component.css"]
+  selector: 'app-create-edit-article-form',
+  templateUrl: './create-edit-article-form.component.html',
+  styleUrls: ['./create-edit-article-form.component.css']
 })
 export class CreateEditArticleFormComponent {
-  @Input() clickSave: (form: NgForm) => void;
+  @Input() clickSave: (formFields: UpdateGroupRequestData) => void;
   @Input() clickCancel: () => void;
   @Input() articleDetails: NewsArticle;
 
-  private heading: string;
-  private description: string;
-  private date: string;
-  private author: string;
-  private image: string;
-  private source: string;
-  private content: string;
+  private formFields: UpdateGroupRequestData = {
+    title: '',
+    description: '',
+    publishedAt: '',
+    author: '',
+    urlToImage: '',
+    url: '',
+    content: ''
+  };
 
   ngOnInit() {
-    const {
-      author,
-      content,
-      urlToImage,
-      title,
-      source,
-      publishedAt,
-      description,
-      id,
-      url
-    } = this.articleDetails;
-    this.heading = title;
-    this.description = description;
-    this.content = content;
-    this.date = publishedAt;
-    this.image = urlToImage;
-    this.author = author;
-    this.source = url;
+    this.formFields.title = this.articleDetails.title;
+    this.formFields.description = this.articleDetails.description;
+    this.formFields.content = this.articleDetails.content;
+    this.formFields.publishedAt = this.articleDetails.publishedAt;
+    this.formFields.urlToImage = this.articleDetails.urlToImage;
+    this.formFields.author = this.articleDetails.author;
+    this.formFields.url = this.articleDetails.url;
   }
 
-  submit(form: NgForm) {
-    this.clickSave(form);
+  handleClickSave = () => {
+    this.clickSave(this.formFields);
   }
 }

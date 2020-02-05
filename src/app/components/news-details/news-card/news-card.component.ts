@@ -19,7 +19,9 @@ export class NewsCardComponent {
   }
 
   handleClickDelete = () => {
-    this.httpService.deleteNewsArticle(`${this.articleDetails.id}`);
+    this.httpService
+      .deleteNewsArticle(`${this.articleDetails._id}`)
+      .subscribe(data => data);
     this.router.navigate(['']);
   }
 
