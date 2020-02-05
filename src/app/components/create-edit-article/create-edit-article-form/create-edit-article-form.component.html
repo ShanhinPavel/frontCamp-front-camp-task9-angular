@@ -39,7 +39,28 @@
     </div>
 
     <div class="inputs-block">
-      <label for="urlToImage">Image</label>
+      <div class="image-switch">
+        <label for="urlToImage">Image</label>
+        <input
+          type="radio"
+          name="image"
+          id="img-url"
+          checked
+          [value]="false"
+          [(ngModel)]="imgPreview"
+        />
+        <label for="image">Url</label>
+
+        <input
+          type="radio"
+          name="image"
+          id="img-file"
+          [value]="true"
+          [(ngModel)]="imgPreview"
+        />
+        <label for="image">File</label>
+      </div>
+
       <input
         type="text"
         id="urlToImage"
@@ -47,6 +68,8 @@
         [(ngModel)]="formFields.urlToImage"
         required
       />
+
+      <img [src]="formFields.urlToImage" alt="preview" *ngIf="imgPreview" />
 
       <label for="url">Source url</label>
       <input

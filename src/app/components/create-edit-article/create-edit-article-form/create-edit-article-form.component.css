@@ -46,3 +46,11 @@ input.ng-touched.ng-invalid {
 input.ng-touched.ng-valid {
   border: solid green 2px;
 }
+
+.image-switch {
+  display: flex;
+}
+
+.image-switch label {
+  margin-right: 10px;
+}
