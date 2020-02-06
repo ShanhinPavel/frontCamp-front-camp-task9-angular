@@ -1,0 +1,28 @@
+<div class="news-line">
+  <div class="wrapper">
+    <div class="img">
+      <app-image [imageSrc]="article.urlToImage"></app-image>
+    </div>
+    <div class="info">
+      <div class="published-date">
+        <app-published-date
+          [publishedDate]="article.publishedAt"
+        ></app-published-date>
+      </div>
+      <div class="description">
+        <h3>{{ article.title }}</h3>
+        <p>
+          {{ article.description }}
+        </p>
+        <p (click)="handleClickReadMore()" class="read-more-button">
+          Read more
+        </p>
+      </div>
+    </div>
+
+    <div class="controls" *ngIf="sourceIsMine">
+      <app-button title="Delete" [clickButton]="handleClickDelete"></app-button>
+      <app-button title="Edit" [clickButton]="handleClickEdit"></app-button>
+    </div>
+  </div>
+</div>

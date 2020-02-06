@@ -1,0 +1,31 @@
+<div class="news-card">
+  <div class="wrapper">
+    <div class="img">
+      <app-image [imageSrc]="articleDetails.urlToImage"></app-image>
+    </div>
+
+    <div class="general-info">
+      <h2>{{ articleDetails.title }}</h2>
+      <p>
+        {{ articleDetails.content }}
+      </p>
+      <div class="publish-date-author">
+        <app-published-date
+          [publishedDate]="articleDetails.publishedAt"
+        ></app-published-date>
+        <div>
+          <p>Author:{{ articleDetails.author }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template [ngIf]="sourceIsMine">
+      <div class="controls">
+        <app-button
+          title="Delete"
+          [clickButton]="handleClickDelete"
+        ></app-button>
+        <app-button title="Edit" [clickButton]="handleClickEdit"></app-button>
+      </div>
+    </ng-template>
+  </div>
+</div>

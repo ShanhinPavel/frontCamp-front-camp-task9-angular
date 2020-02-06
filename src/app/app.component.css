@@ -3,3 +3,9 @@
   width: 100%;
   margin: 0 auto;
 }
+
+.content {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+}

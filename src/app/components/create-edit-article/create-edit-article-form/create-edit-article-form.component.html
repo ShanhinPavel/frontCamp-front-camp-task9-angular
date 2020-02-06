@@ -1,0 +1,97 @@
+<form class="form" novalidate>
+  <div class="inputs-blocks">
+    <div class="inputs-block">
+      <label for="title" class="form-field">Heading</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="formFields.title"
+        required
+      />
+
+      <label for="description" class="form-field">Short description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        [(ngModel)]="formFields.description"
+        required
+      />
+
+      <label for="publishedAt">Date</label>
+      <input
+        type="text"
+        id="publishedAt"
+        name="publishedAt"
+        [(ngModel)]="formFields.publishedAt"
+        required
+      />
+
+      <label for="author">Author</label>
+      <input
+        type="text"
+        id="author"
+        name="author"
+        [(ngModel)]="formFields.author"
+        required
+      />
+    </div>
+
+    <div class="inputs-block">
+      <div class="image-switch">
+        <label for="urlToImage">Image</label>
+        <input
+          type="radio"
+          name="image"
+          id="img-url"
+          checked
+          [value]="false"
+          [(ngModel)]="imgPreview"
+        />
+        <label for="image">Url</label>
+
+        <input
+          type="radio"
+          name="image"
+          id="img-file"
+          [value]="true"
+          [(ngModel)]="imgPreview"
+        />
+        <label for="image">File</label>
+      </div>
+
+      <input
+        type="text"
+        id="urlToImage"
+        name="urlToImage"
+        [(ngModel)]="formFields.urlToImage"
+        required
+      />
+
+      <img [src]="formFields.urlToImage" alt="preview" *ngIf="imgPreview" />
+
+      <label for="url">Source url</label>
+      <input
+        type="text"
+        id="url"
+        name="url"
+        [(ngModel)]="formFields.url"
+        required
+      />
+
+      <label for="content">Content</label>
+      <textarea
+        type="text"
+        id="content"
+        name="content"
+        [(ngModel)]="formFields.content"
+        required
+      ></textarea>
+    </div>
+  </div>
+  <div class="form-controls">
+    <app-button title="Cancel" [clickButton]="clickCancel"></app-button>
+    <app-button title="Save" [clickButton]="handleClickSave"> </app-button>
+  </div>
+</form>

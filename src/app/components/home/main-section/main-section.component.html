@@ -1,0 +1,23 @@
+<div class="main-section">
+  <ng-template [ngIf]="newsArticles">
+    <div class="news-lines" *ngFor="let article of newsArticles">
+      <app-news-line
+        [article]="article"
+        [sourceIsMine]="sourceIsMine"
+        [fetchMySourceArticles]="fetchMySourceArticles"
+      ></app-news-line>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="!newsArticles.length">
+    <div class="no-articles">
+      There is no news articles with choosen criteria
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="showingLoadMoreButton && newsArticles.length">
+    <app-load-more
+      [onClickLoadMoreButton]="handleClickLoadMoreButton"
+    ></app-load-more>
+  </ng-template>
+</div>

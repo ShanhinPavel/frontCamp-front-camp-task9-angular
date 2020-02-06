@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.input,
+label,
+textarea {
+  display: block;
+}
+
+.inputs-block:nth-child(1) {
+  margin-right: 50px;
+}
+
+.form-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.inputs-blocks {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+}
+
+#date,
+#heading,
+#short-description,
+#author,
+#image,
+#content {
+  margin-bottom: 10px;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 2px;
+}
+
+.image-switch {
+  display: flex;
+}
+
+.image-switch label {
+  margin-right: 10px;
+}

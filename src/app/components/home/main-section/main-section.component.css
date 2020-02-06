@@ -1,0 +1,12 @@
+.main-section {
+  width: 80%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.no-articles {
+  margin: auto auto;
+}

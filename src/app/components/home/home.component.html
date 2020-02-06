@@ -1,3 +1,14 @@
-<app-header></app-header>
-<app-home-content></app-home-content>
-<app-footer></app-footer>
+<app-title [title]="sourceTitle"></app-title>
+<app-search-section
+  [newsSources]="newsSources"
+  (handleChangeSource)="handleChangeSource($event)"
+  (handleClickFilter)="handleClickFilter($event)"
+  (handleChangeCheckbox)="handleChangeCheckbox($event)"
+></app-search-section>
+<app-main-section
+  [newsArticles]="filteredNewsArticles"
+  [showingLoadMoreButton]="showingLoadMoreButton"
+  [handleClickLoadMoreButton]="handleClickLoadMoreButton"
+  [sourceIsMine]="sourceIsMine"
+  [fetchMySourceArticles]="fetchMySourceArticles"
+></app-main-section>

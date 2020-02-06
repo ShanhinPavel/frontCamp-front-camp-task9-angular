@@ -1,12 +1,22 @@
-.spacer {
-  flex: 1;
-}
-
 .header {
-  height: 60px;
+  min-height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: #333333;
   color: white;
   font-weight: 600;
+}
+
+.wrapper {
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo,
+.auth-buttons {
+  display: flex;
+  align-items: center;
 }
