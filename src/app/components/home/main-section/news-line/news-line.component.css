@@ -21,6 +21,7 @@
 .info {
   display: flex;
   flex-direction: column;
+  flex: auto 1;
 }
 
 .published-date {
@@ -84,58 +85,3 @@ h3 {
     text-align: left;
   }
 }
-
-/* .news-line {
-  width: 100%;
-  margin: 20px auto;
-  min-height: 230px;
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-}
-
-.wrapper {
-  margin: 10px;
-  display: flex;
-  justify-content: space-between;
-  min-height: 220px;
-  color: dimgray;
-}
-
-.img {
-  width: 30%;
-  min-width: 280px;
-  max-height: 220px;
-}
-
-.info {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.published-date {
-  text-align: end;
-  margin-bottom: 10px;
-}
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-app-button:nth-child(1) {
-  margin-bottom: 10px;
-}
-
-.read-more-button {
-  padding-top: 5px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-h3 {
-  margin-bottom: 10px;
-} */

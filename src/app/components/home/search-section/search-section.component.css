@@ -1,9 +1,18 @@
 .search-section {
   display: flex;
-  flex-direction: row;
+
   justify-content: space-around;
   align-items: center;
-  height: 60px;
+  flex-direction: column;
+  min-height: 110px;
+
   width: 100%;
   background-color: dimgray;
+}
+
+@media screen and (min-width: 800px) {
+  .search-section {
+    flex-direction: row;
+    min-height: 60px;
+  }
 }
