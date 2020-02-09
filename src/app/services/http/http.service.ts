@@ -8,7 +8,7 @@ import {
   NewsSourcesResponse,
   NewsArticlesResponse,
   NewsArticle
-} from './types';
+} from '../types';
 import {
   SOURCES_URL,
   NEWS_EVERYTHING_URL,

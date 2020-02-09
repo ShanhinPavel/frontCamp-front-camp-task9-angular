@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { GlobalDataService } from 'src/app/services/global-data.service';
-import { NewsArticle } from 'src/app/services/types';
+import { GlobalDataService, NewsArticle } from 'src/app/services/';
 
 @Component({
   selector: 'app-news-details',

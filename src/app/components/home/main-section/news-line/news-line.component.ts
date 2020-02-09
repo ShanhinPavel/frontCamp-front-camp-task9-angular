@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewsArticle } from 'src/app/services/types';
-import { GlobalDataService } from '../../../../services/global-data.service';
-import { HttpService } from 'src/app/services/http.service';
+
+import {
+  GlobalDataService,
+  HttpService,
+  NewsArticle
+} from '../../../../services/';
 
 @Component({
   selector: 'app-news-line',

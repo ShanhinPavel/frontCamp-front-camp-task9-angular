@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewsArticle } from 'src/app/services/types';
-import { HttpService } from '../../../services/http.service';
+import { NewsArticle, HttpService } from 'src/app/services';
 
 @Component({
   selector: 'app-news-card',

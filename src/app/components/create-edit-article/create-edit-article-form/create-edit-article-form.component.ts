@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NewsArticle } from 'src/app/services/types';
-import { UpdateGroupRequestData } from '../../../services/types';
+import { Component, Input } from '@angular/core';
+import { NewsArticle, UpdateGroupRequestData } from 'src/app/services';
 
 @Component({
   selector: 'app-create-edit-article-form',

@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { NewsArticle } from '../../services/types';
-import { HttpService } from 'src/app/services/http.service';
-import { GlobalDataService } from 'src/app/services/global-data.service';
-import { UpdateGroupRequestData } from '../../services/types';
+import {
+  HttpService,
+  GlobalDataService,
+  UpdateGroupRequestData
+} from 'src/app/services';
 
 const MODE_TITLE = {
   create: 'Create',
