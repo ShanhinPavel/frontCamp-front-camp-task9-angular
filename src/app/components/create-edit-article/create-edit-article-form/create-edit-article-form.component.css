@@ -1,33 +1,46 @@
+:host {
+  flex: auto 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 0;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 90%;
   margin: 0 auto;
-  border: 1px solid black;
 }
 
-.input,
+.inputs-blocks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.inputs-block {
+  width: 90%;
+}
+
+input,
 label,
 textarea {
   display: block;
+  width: 100%;
 }
 
-.inputs-block:nth-child(1) {
+/* .inputs-block:nth-child(1) {
   margin-right: 50px;
-}
+} */
 
 .form-controls {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
-
-.inputs-blocks {
-  display: flex;
-  flex-direction: row;
-  margin: 30px;
 }
 
 #date,
@@ -53,4 +66,25 @@ input.ng-touched.ng-valid {
 
 .image-switch label {
   margin-right: 10px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .inputs-blocks {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 800px;
+  }
+
+  .inputs-block {
+    width: 49%;
+  }
 }

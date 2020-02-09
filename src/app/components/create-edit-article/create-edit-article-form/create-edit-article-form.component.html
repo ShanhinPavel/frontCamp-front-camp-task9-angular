@@ -69,7 +69,11 @@
         required
       />
 
-      <img [src]="formFields.urlToImage" alt="preview" *ngIf="imgPreview" />
+      <app-image
+        [imageSrc]="formFields.urlToImage"
+        alt="preview"
+        *ngIf="imgPreview"
+      ></app-image>
 
       <label for="url">Source url</label>
       <input
