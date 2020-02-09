@@ -22,6 +22,7 @@ import { CreateEditArticleComponent } from "./components/create-edit-article/cre
 import { CreateEditArticleFormComponent } from "./components/create-edit-article/create-edit-article-form/create-edit-article-form.component";
 import { GlobalDataService } from "./services/global-data.service";
 import { HttpService } from "./services/http.service";
+import { HomeContentComponent } from "./components/home/home-content/home-content.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { HttpService } from "./services/http.service";
     HeaderComponent,
     HomeComponent,
     SearchSectionComponent,
-
+    MainSectionComponent,
+    HomeContentComponent,
+    SearchSectionComponent,
     TitleComponent,
     MainSectionComponent,
     ButtonComponent,
