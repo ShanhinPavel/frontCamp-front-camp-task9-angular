@@ -8,9 +8,9 @@ import { AppComponent } from "./app.component";
 import { FooterComponent } from "./components/common/footer/footer.component";
 import { HeaderComponent } from "./components/common/header/header.component";
 import { HomeComponent } from "./components/home/home.component";
-import { SearchSectionComponent } from "./components/home/search-section/search-section.component";
+
 import { TitleComponent } from "./components/common/title/title.component";
-import { MainSectionComponent } from "./components/home/main-section/main-section.component";
+
 import { ButtonComponent } from "./components/common/button/button.component";
 import { NewsLineComponent } from "./components/home/main-section/news-line/news-line.component";
 import { PublishedDateComponent } from "./components/common/published-date/published-date.component";
@@ -23,6 +23,8 @@ import { CreateEditArticleFormComponent } from "./components/create-edit-article
 import { GlobalDataService } from "./services/global-data.service";
 import { HttpService } from "./services/http.service";
 import { HomeContentComponent } from "./components/home/home-content/home-content.component";
+import { MainSectionComponent } from "./components/home/main-section/main-section.component";
+import { SearchSectionComponent } from "./components/home/search-section/search-section.component";
 
 @NgModule({
   declarations: [
@@ -30,11 +32,9 @@ import { HomeContentComponent } from "./components/home/home-content/home-conten
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    SearchSectionComponent,
-    MainSectionComponent,
     HomeContentComponent,
-    SearchSectionComponent,
     TitleComponent,
+    SearchSectionComponent,
     MainSectionComponent,
     ButtonComponent,
     NewsLineComponent,

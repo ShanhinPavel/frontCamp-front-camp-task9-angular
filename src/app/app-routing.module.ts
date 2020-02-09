@@ -1,30 +1,30 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./components/home/home.component";
-import { NewsDetailsComponent } from "./components/news-details/news-details.component";
-import { CreateEditArticleComponent } from "./components/create-edit-article/create-edit-article.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { NewsDetailsComponent } from './components/news-details/news-details.component';
+import { CreateEditArticleComponent } from './components/create-edit-article/create-edit-article.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: '', component: HomeComponent },
   {
-    path: "article/create",
+    path: 'article/create',
     component: CreateEditArticleComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "article/details",
+    path: 'article/details',
     component: NewsDetailsComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "article/edit",
+    path: 'article/edit',
     component: CreateEditArticleComponent,
-    pathMatch: "full"
+    pathMatch: 'full'
   },
   {
-    path: "**",
-    redirectTo: "",
-    pathMatch: "full"
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 
