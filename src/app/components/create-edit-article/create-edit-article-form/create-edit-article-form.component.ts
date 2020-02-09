@@ -1,25 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { NewsArticle, UpdateGroupRequestData } from 'src/app/services';
+import { Component, Input } from "@angular/core";
+import { NewsArticle, UpdateGroupRequestData } from "src/app/services";
 
 @Component({
-  selector: 'app-create-edit-article-form',
-  templateUrl: './create-edit-article-form.component.html',
-  styleUrls: ['./create-edit-article-form.component.css']
+  selector: "app-create-edit-article-form",
+  templateUrl: "./create-edit-article-form.component.html",
+  styleUrls: ["./create-edit-article-form.component.css"]
 })
 export class CreateEditArticleFormComponent {
   @Input() clickSave: (formFields: UpdateGroupRequestData) => void;
   @Input() clickCancel: () => void;
   @Input() articleDetails: NewsArticle;
-  private imgPreview: boolean;
+  imgPreview: boolean;
 
-  private formFields: UpdateGroupRequestData = {
-    title: '',
-    description: '',
-    publishedAt: '',
-    author: '',
-    urlToImage: '',
-    url: '',
-    content: ''
+  formFields: UpdateGroupRequestData = {
+    title: "",
+    description: "",
+    publishedAt: "",
+    author: "",
+    urlToImage: "",
+    url: "",
+    content: ""
   };
 
   ngOnInit() {
@@ -36,5 +36,5 @@ export class CreateEditArticleFormComponent {
 
   handleClickSave = () => {
     this.clickSave(this.formFields);
-  }
+  };
 }

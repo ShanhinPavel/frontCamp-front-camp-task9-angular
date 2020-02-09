@@ -21,17 +21,17 @@ import { isShowLoadMore } from "./helpers/is-show-load-more";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  private newsSources: NewsSource[];
-  private sourceTitle: string;
-  private selectedSource: NewsSource;
-  private newsArticles: NewsArticle[];
-  private routeSubscription: Subscription;
-  private filteredNewsArticles: NewsArticle[];
-  private newsArticlesPage: number;
-  private showingLoadMoreButton: boolean;
-  private totalResults: number;
-  private mySource: NewsSource;
-  private sourceIsMine: boolean;
+  newsSources: NewsSource[];
+  sourceTitle: string;
+  selectedSource: NewsSource;
+  newsArticles: NewsArticle[];
+  routeSubscription: Subscription;
+  filteredNewsArticles: NewsArticle[];
+  newsArticlesPage: number;
+  showingLoadMoreButton: boolean;
+  totalResults: number;
+  mySource: NewsSource;
+  sourceIsMine: boolean;
 
   constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.newsSources = [];
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.sourceIsMine = false;
   }
 
-  private fetchMySourceArticles = () => {
+  fetchMySourceArticles = () => {
     this.showingLoadMoreButton = false;
     this.selectedSource = this.mySource;
     this.httpService
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       });
   };
 
-  private fechNewsArticles = (newsSourceId: string, page: number) => {
+  fechNewsArticles = (newsSourceId: string, page: number) => {
     this.httpService
       .getNewsArticlesBySourceId(newsSourceId, page)
       .subscribe((data: NewsArticlesResponse) => {
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private handleChangeSource = (sourceIndex: string) => {
+  handleChangeSource = (sourceIndex: string) => {
     this.newsArticlesPage = 1;
     let selectedSource: NewsSource;
 
@@ -109,18 +109,18 @@ export class HomeComponent implements OnInit {
     this.sourceTitle = selectedSource.name;
   };
 
-  private handleClickFilter = (filterString: string) => {
+  handleClickFilter = (filterString: string) => {
     this.filteredNewsArticles = filterNewsArticlesByWord(
       filterString,
       this.newsArticles
     );
   };
 
-  private handleChangeCheckbox = (checked: boolean) => {
+  handleChangeCheckbox = (checked: boolean) => {
     this.fetchMySourceArticles();
   };
 
-  private handleClickLoadMoreButton = () => {
+  handleClickLoadMoreButton = () => {
     const nextPage = this.newsArticlesPage + 1;
     this.newsArticlesPage = nextPage;
     this.showingLoadMoreButton = isShowLoadMore(
